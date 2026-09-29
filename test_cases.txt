@@ -1,0 +1,39 @@
+======================================================================
+TEST CASES — ETHICAL KEYLOGGER SIMULATION
+======================================================================
+
+Test Case 1: Normal Text Input
+----------------------------------------------------------------------
+Input: "Hello"
+Expected Result:
+- "Hello" is displayed inside the visible Tkinter text box.
+- An encrypted file `keystrokes.enc` is created/updated.
+- No readable plaintext "Hello" appears inside `keystrokes.enc`.
+
+Test Case 2: Special Key Representations
+----------------------------------------------------------------------
+Input: Space, Enter, BackSpace, Tab
+Expected Result:
+- Events map to " ", "[ENTER]", "[BACKSPACE]", and "[TAB]" respectively.
+- Mapped events are encrypted using Fernet before disk write.
+
+Test Case 3: Encrypted Log Storage
+----------------------------------------------------------------------
+Action: Inspect `keystrokes.enc` using a plain text editor.
+Expected Result:
+- Content consists only of Fernet-formatted encrypted tokens separated by newlines.
+
+Test Case 4: Log Purge Functionality
+----------------------------------------------------------------------
+Action: Click "Purge Encrypted Log" button.
+Expected Result:
+- A message box appears: "Encrypted key log has been deleted."
+- `keystrokes.enc` is removed from disk.
+- Clicking the button again displays: "No key log was found."
+
+Test Case 5: Scope Isolation
+----------------------------------------------------------------------
+Action: Focus another application (e.g., browser or notepad) and type.
+Expected Result:
+- No events are captured or recorded to `keystrokes.enc`.
+- Key capture occurs strictly when the Tkinter text box holds focus.

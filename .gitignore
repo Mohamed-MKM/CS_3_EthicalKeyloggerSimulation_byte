@@ -1,0 +1,20 @@
+# Local encryption keys & runtime log files (DO NOT COMMIT)
+*.key
+*.enc
+keystrokes.enc
+encryption.key
+
+# Python environment and cache files
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+
+# Operating system / IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
